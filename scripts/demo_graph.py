@@ -34,6 +34,9 @@ def _format_messages(messages: Iterable[BaseMessage]) -> str:
 
 
 async def main() -> None:
+    """
+    Docstring for main
+    """
     prompt = os.getenv("DEMO_PROMPT", "Who is the founder of LangChain?")
 
     result = await graph.ainvoke(
