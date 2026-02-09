@@ -14,7 +14,7 @@ from langgraph.runtime import Runtime
 from react_agent.context import Context
 from react_agent.state import InputState, State
 from react_agent.tools import TOOLS
-from react_agent.utils import load_chat_model
+from react_agent.common_utils import load_chat_model
 
 # Define the function that calls the model
 

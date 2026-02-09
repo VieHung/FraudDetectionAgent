@@ -90,3 +90,38 @@ You can find the latest (under construction) docs on [LangGraph](https://github.
 LangGraph Studio also integrates with [LangSmith](https://smith.langchain.com/) for more in-depth tracing and collaboration with teammates.
 
 [^1]: https://python.langchain.com/docs/concepts/#tools
+
+```
+FraudDetectionAgent
+├─ .codespellignore
+├─ LICENSE
+├─ Makefile
+├─ README.md
+├─ langgraph.json
+├─ pyproject.toml
+├─ scripts
+│  └─ demo_graph.py
+├─ src
+│  └─ react_agent
+│     ├─ __init__.py
+│     ├─ context.py
+│     ├─ graph.py
+│     ├─ prompts.py
+│     ├─ state.py
+│     ├─ tools.py
+│     └─ utils.py
+├─ static
+│  └─ studio_ui.png
+├─ tests
+│  ├─ cassettes
+│  │  └─ 103fe67e-a040-4e4e-aadb-b20a7057f904.yaml
+│  ├─ conftest.py
+│  ├─ integration_tests
+│  │  ├─ __init__.py
+│  │  └─ test_graph.py
+│  └─ unit_tests
+│     ├─ __init__.py
+│     └─ test_configuration.py
+└─ uv.lock
+
+```
