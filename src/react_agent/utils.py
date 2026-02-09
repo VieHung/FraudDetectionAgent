@@ -1,8 +1,14 @@
 """Utility & helper functions."""
 
+import os
+
+from dotenv import load_dotenv
+load_dotenv()
+
 from langchain.chat_models import init_chat_model
 from langchain_core.language_models import BaseChatModel
 from langchain_core.messages import BaseMessage
+from langchain_openai import ChatOpenAI
 
 
 def get_message_text(msg: BaseMessage) -> str:
@@ -24,4 +30,13 @@ def load_chat_model(fully_specified_name: str) -> BaseChatModel:
         fully_specified_name (str): String in the format 'provider/model'.
     """
     provider, model = fully_specified_name.split("/", maxsplit=1)
+    if provider == "megallm":
+        base_url = os.getenv("MEGALLM_BASE_URL", "https://ai.megallm.io/v1")
+        api_key = os.getenv("MEGALLM_API_KEY")
+        if not api_key:
+            raise ValueError(
+                "MEGALLM_API_KEY is required when using provider 'megallm'."
+            )
+        return ChatOpenAI(model=model, base_url=base_url, api_key=api_key)
+
     return init_chat_model(model, model_provider=provider)
