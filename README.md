@@ -7,12 +7,12 @@
 Dự án được thiết kế theo luồng xử lý 4 lớp, bổ sung cơ chế **Circuit Breaker** (Layer 2.5):
 
 1. **Layer 1 - Ingestion:** Tiếp nhận và chuẩn hóa dữ liệu giao dịch.
-2. **⚡ Layer 2.5 - Circuit Breaker (Fast Rules):**
+2. **⚡ Layer 2 - Circuit Breaker (Fast Rules):**
 * **Mục tiêu:** Lọc ngay lập tức 20-30% giao dịch rõ ràng (VD: IP Blacklist, whitelist nội bộ) mà **KHÔNG** gọi tới AI.
 * **Lợi ích:** Giảm độ trễ (Latency) và tiết kiệm chi phí Token cho LLM.
 
 
-3. **Layer 2 - Analysis Support:** Các mô hình bổ trợ (NLP, Behavioral Scoring) cung cấp thông tin cho AI.
+3. **Layer 2.5 - Analysis Support:** Các mô hình bổ trợ (NLP, Behavioral Scoring) cung cấp thông tin cho AI.
 4. **Layer 3 - The Brain (AI Agent):** Chỉ được kích hoạt với các giao dịch "vùng xám" (nghi ngờ). AI sẽ tổng hợp dữ liệu để đưa ra phán quyết cuối cùng.
 5. **Layer 4 - Actions:** Thực thi quyết định (Block, OTP, Alert).
 
@@ -29,9 +29,9 @@ src/react_agent
 │   └── loader.py            # 👉 Logic load data
 │
 ├── analytics/               # [Layer 2 & 2.5] TEAM DATA SCIENCE
-│   ├── rules.py             # ⚡ [Layer 2.5] Chứa logic Circuit Breaker (Hàm fast_check trả về BLOCK/PASS ngay)
-│   ├── behavioral.py        # 👉 [Layer 2] Logic tính điểm hành vi (cho AI tham khảo)
-│   └── nlp.py               # 👉 [Layer 2] Logic phân tích nội dung message
+│   ├── rules.py             # ⚡ [Layer 2] Chứa logic Circuit Breaker (Hàm fast_check trả về BLOCK/PASS ngay)
+│   ├── behavioral.py        # 👉 [Layer 2.5] Logic tính điểm hành vi (cho AI tham khảo)
+│   └── nlp.py               # 👉 [Layer 2.5] Logic phân tích nội dung message
 │
 ├── actions/                 # [Layer 4] TEAM BACKEND
 │   ├── notifications.py     # 👉 Code gửi Email/SMS/OTP
