@@ -55,7 +55,7 @@ src/react_agent
 
 ## 🚀 Hướng dẫn phát triển (Developer Guide)
 
-### 1. Phát triển Layer 2.5 (Fast Rules / Circuit Breaker)
+### 1. Phát triển Layer 2 (Fast Rules / Circuit Breaker)
 
 * **Mục tiêu:** Thêm các luật chặn cứng/cho qua cứng.
 * **File cần sửa:** `src/react_agent/analytics/rules.py`
